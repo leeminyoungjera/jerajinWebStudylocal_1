@@ -11,8 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-	<h1>게시판 글쓰기 폼</h1>
+<div class="card-header py-3">게시판 글쓰기 폼</div>
+	<div class="card-body">"
 	<form action="write.do" method="post" id="writeForm">
 		<div class = "form-group">
 			<label>제목 </label>

@@ -1,5 +1,7 @@
 package org.zerock.board.controller;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -28,11 +30,20 @@ public class BoardController {
 	
 	@RequestMapping("/list.do")
 	public String list(@ModelAttribute("pageObject") PageObject pageObject, Model model) {
-		log.info("게시판 리스트 -----------------------");
+		log.info("게시판 리스트 -----------------------" + LocalDateTime.now().toString());
 //		System.out.println(10/0);
 		model.addAttribute("list", service.list(pageObject));
 //		log.info(service.list());
 		return "board/list";
+	}
+	
+	@RequestMapping("/list2.do")
+	public String list2(@ModelAttribute("pageObject") PageObject pageObject, Model model) {
+		log.info("게시판 리스트2 -----------------------");
+//		System.out.println(10/0);
+//		model.addAttribute("list", service.list(pageObject));
+//		log.info(service.list());
+		return "board/list2";
 	}
 	
 	@RequestMapping("/view.do")
