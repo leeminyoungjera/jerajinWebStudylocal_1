@@ -11,11 +11,17 @@
 			from(
 				select no, title, writer, writeDate, hit
 				from board
+				order by no
 			)
 		)
-		where rnum between 1 and 10
+		where rnum between #{startRow} and #{endRow}
 		order by no desc
 	</select>
+	
+	<select id="getTotalRow" resultType="Long">
+		select count(*) from board
+	</select>
+	
 	
 	<select id="view" resultType="org.zerock.board.vo.BoardVO">
 		select no, title, content, writer, writeDate, hit

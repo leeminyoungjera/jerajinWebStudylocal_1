@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.zerock.board.mapper.BoardMapper;
 import org.zerock.board.vo.BoardVO;
 
+import com.webjjang.util.PageObject;
+
 @Service
 @Qualifier("boardServiceImpl")
 public class BoardServiceImpl implements BoardService {
@@ -17,8 +19,9 @@ public class BoardServiceImpl implements BoardService {
 	private BoardMapper mapper;
 
 	@Override
-	public List<BoardVO> list() {
-		return mapper.list();
+	public List<BoardVO> list(PageObject pageObject) {
+		pageObject.setTotalRow(mapper.getTotalRow(pageObject));
+		return mapper.list(pageObject);
 	}
 
 	@Override
